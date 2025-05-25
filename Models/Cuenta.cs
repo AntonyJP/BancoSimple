@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BancoSimple.Models
 {
-    public class Cuentas
+    public class Cuenta
     {
-        public int CentaId { get; set; }
+        public int CuentaId { get; set; }
         public string NumeroCuenta { get; set; }
         public decimal Saldo { get; set; }
         public bool Activa { get; set; } = true;
         public int ClienteId { get; set; }
-        public Clientes Cliente { get; set; }
+        public Cliente Cliente { get; set; }
     }
 }

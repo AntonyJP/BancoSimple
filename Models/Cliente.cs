@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BancoSimple.Models
 {
-    public class Clientes
+    public class Cliente
     {
         public int ClienteId { get; set; }
         public string Nombre { get; set; }
-        public string Identificacion { get; set; }
-        public List<Cuentas> cuentas { get; set; } = new List<Cuentas>();   
+        public string Identification { get; set; }
+        public List<Cuenta> cuenta { get; set; } = new List<Cuenta>();   
     }
 }
