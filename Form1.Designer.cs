@@ -32,6 +32,7 @@
             btnAgregarCliente = new Button();
             dgvCuentas = new DataGridView();
             btnAgregarCuenta = new Button();
+            btnDesactivarCuenta = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCuentas).BeginInit();
             SuspendLayout();
@@ -61,23 +62,33 @@
             dgvCuentas.Name = "dgvCuentas";
             dgvCuentas.Size = new Size(361, 297);
             dgvCuentas.TabIndex = 0;
-            dgvCuentas.CellContentClick += dgvCuentas_CellContentClick;
             // 
             // btnAgregarCuenta
             // 
             btnAgregarCuenta.Location = new Point(432, 327);
             btnAgregarCuenta.Name = "btnAgregarCuenta";
             btnAgregarCuenta.Size = new Size(127, 49);
-            btnAgregarCuenta.TabIndex = 1;
+            btnAgregarCuenta.TabIndex = 2;
             btnAgregarCuenta.Text = "Agregar Cuenta";
             btnAgregarCuenta.UseVisualStyleBackColor = true;
-            btnAgregarCuenta.Click += btnAgregarCliente_Click;
+            btnAgregarCuenta.Click += btnAgregarCuenta_Click;
+            // 
+            // btnDesactivarCuenta
+            // 
+            btnDesactivarCuenta.Location = new Point(592, 327);
+            btnDesactivarCuenta.Name = "btnDesactivarCuenta";
+            btnDesactivarCuenta.Size = new Size(127, 49);
+            btnDesactivarCuenta.TabIndex = 3;
+            btnDesactivarCuenta.Text = "Desactivar Cuenta";
+            btnDesactivarCuenta.UseVisualStyleBackColor = true;
+            btnDesactivarCuenta.Click += btnDesactivarCuenta_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(831, 494);
+            Controls.Add(btnDesactivarCuenta);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(btnAgregarCliente);
             Controls.Add(dgvCuentas);
@@ -96,5 +107,6 @@
         private Button btnAgregarCliente;
         private DataGridView dgvCuentas;
         private Button btnAgregarCuenta;
+        private Button btnDesactivarCuenta;
     }
 }
