@@ -64,14 +64,14 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(239, 48);
+            txtMonto.Location = new Point(264, 48);
             txtMonto.Name = "txtMonto";
             txtMonto.Size = new Size(218, 23);
             txtMonto.TabIndex = 1;
             // 
             // btnRealizarTransferencia
             // 
-            btnRealizarTransferencia.Location = new Point(93, 120);
+            btnRealizarTransferencia.Location = new Point(86, 123);
             btnRealizarTransferencia.Name = "btnRealizarTransferencia";
             btnRealizarTransferencia.Size = new Size(324, 36);
             btnRealizarTransferencia.TabIndex = 2;
@@ -83,7 +83,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(504, 208);
+            ClientSize = new Size(504, 195);
             Controls.Add(btnRealizarTransferencia);
             Controls.Add(txtMonto);
             Controls.Add(lblDestino);

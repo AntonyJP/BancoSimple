@@ -13,7 +13,7 @@ namespace BancoSimple
 {
     public partial class formVerTransacciones : Form
     {
-
+        //contexto para ver las transacciones
         private BancoSimple2S1Context context = new BancoSimple2S1Context();
         public formVerTransacciones()
         {
