@@ -31,20 +31,25 @@ namespace BancoSimple
 
         private void RealizarTransferencia(int cuentaOrigen, int cuentaDestino, decimal monto)
         {
-            /*implementar la logica de transferencia
-            *niveles de aislamiento  (Serializable se utiliza para operaciones financieras)* 
-            */
+        /*
+        * Implementa la lógica de una transferencia bancaria entre dos cuentas.
+        * Usa el nivel de aislamiento Serializable para evitar problemas de concurrencia,
+        * garantizando que no se modifiquen los datos por otras transacciones mientras esta se ejecuta.
+        */
             using var transferencia = _db.Database.BeginTransaction(System.Data.IsolationLevel.Serializable);
             try
             {
+                //busca las cuetnas por su ID
                 var cuentaOrigenId = _db.Cuentas.FirstOrDefault(c => c.CuentaId == cuentaOrigen);
                 var cuentaDestinoId = _db.Cuentas.FirstOrDefault(c => c.CuentaId == cuentaDestino);
 
+                // Verifica si la cuenta origen tiene saldo suficiente
                 if (cuentaOrigenId.Saldo < monto) throw new Exception("Saldo insuficiente");
 
                 cuentaOrigenId.Saldo -= monto;
                 cuentaDestinoId.Saldo += monto;
 
+                // Registra la transacción en la tabla de transacciones
                 _db.Transacciones.Add(new Transaccion
                 {
                     Monto = monto,
@@ -57,6 +62,7 @@ namespace BancoSimple
                 _db.SaveChanges();
                 //Transaccion Completa
 
+                // Confirma la transacción
                 transferencia.Commit();
                 MessageBox.Show("Transferencia realizada con éxito.");
 
@@ -122,6 +128,7 @@ namespace BancoSimple
 
         private void btnTransferir_Click(object sender, EventArgs e)
         {
+            // Verifica que se hayan seleccionado dos cuetnas en el DataGridView
             if (dgvCuentas.SelectedRows.Count != 2)
             {
                 MessageBox.Show("Seleccione dos cuentas para realizar la transferencia.");
@@ -129,6 +136,7 @@ namespace BancoSimple
             }
             else
             {
+                //obtiene las cuentas de origen y de destino de sus respectivas filas
                 var cuentaOrigenId = (int)dgvCuentas.SelectedRows[0].Cells["CuentaId"].Value;
                 var cuentasDestinoId = (int)dgvCuentas.SelectedRows[1].Cells["CuentaId"].Value;
                 var form = new formTransferencias(cuentaOrigenId, cuentasDestinoId);
