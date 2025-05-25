@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             dgvClientes = new DataGridView();
             btnAgregarCliente = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
@@ -67,5 +68,6 @@
 
         private DataGridView dgvClientes;
         private Button btnAgregarCliente;
+
     }
 }
