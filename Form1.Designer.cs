@@ -33,6 +33,8 @@
             dgvCuentas = new DataGridView();
             btnAgregarCuenta = new Button();
             btnDesactivarCuenta = new Button();
+            btnTransferir = new Button();
+            btnVerTransferencias = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCuentas).BeginInit();
             SuspendLayout();
@@ -83,11 +85,33 @@
             btnDesactivarCuenta.UseVisualStyleBackColor = true;
             btnDesactivarCuenta.Click += btnDesactivarCuenta_Click;
             // 
+            // btnTransferir
+            // 
+            btnTransferir.Location = new Point(432, 382);
+            btnTransferir.Name = "btnTransferir";
+            btnTransferir.Size = new Size(127, 49);
+            btnTransferir.TabIndex = 4;
+            btnTransferir.Text = "Transferir";
+            btnTransferir.UseVisualStyleBackColor = true;
+            btnTransferir.Click += btnTransferir_Click;
+            // 
+            // btnVerTransferencias
+            // 
+            btnVerTransferencias.Location = new Point(592, 382);
+            btnVerTransferencias.Name = "btnVerTransferencias";
+            btnVerTransferencias.Size = new Size(127, 49);
+            btnVerTransferencias.TabIndex = 5;
+            btnVerTransferencias.Text = "Ver Transferencia";
+            btnVerTransferencias.UseVisualStyleBackColor = true;
+            btnVerTransferencias.Click += btnVerTransferencias_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(831, 494);
+            Controls.Add(btnVerTransferencias);
+            Controls.Add(btnTransferir);
             Controls.Add(btnDesactivarCuenta);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(btnAgregarCliente);
@@ -108,5 +132,7 @@
         private DataGridView dgvCuentas;
         private Button btnAgregarCuenta;
         private Button btnDesactivarCuenta;
+        private Button btnTransferir;
+        private Button btnVerTransferencias;
     }
 }
