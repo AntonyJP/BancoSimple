@@ -16,5 +16,22 @@ namespace BancoSimple
         {
             dgvClientes.DataSource = _db.Clientes.ToList();
         }
+
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            var form = new formAgregarCliente();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                var nuevoCliente = form.NuevoCliente;
+                _db.Clientes.Add(nuevoCliente);
+                _db.SaveChanges();
+                CargarInfo();
+            }
+        }
+
+        private void dgvCuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
