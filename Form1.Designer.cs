@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+
+            dgvClientes = new DataGridView();
+            btnAgregarCliente = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvClientes
+            // 
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(25, 24);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.Size = new Size(383, 333);
+            dgvClientes.TabIndex = 0;
+            // 
+            // btnAgregarCliente
+            // 
+            btnAgregarCliente.Location = new Point(25, 363);
+            btnAgregarCliente.Name = "btnAgregarCliente";
+            btnAgregarCliente.Size = new Size(127, 49);
+            btnAgregarCliente.TabIndex = 1;
+            btnAgregarCliente.Text = "Agregar Cliente";
+            btnAgregarCliente.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnAgregarCliente);
+            Controls.Add(dgvClientes);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dgvClientes;
+        private Button btnAgregarCliente;
+
     }
 }
