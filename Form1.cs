@@ -6,5 +6,9 @@ namespace BancoSimple
         {
             InitializeComponent();
         }
+        public void Limpiar()
+        {
+            //Hola
+        }
     }
 }
