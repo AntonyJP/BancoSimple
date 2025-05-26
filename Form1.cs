@@ -102,7 +102,7 @@ namespace BancoSimple
             // Obtenemos el valor del id del cliente para asignarle su cuenta.
             var clienteId = (int)dgvClientes.SelectedRows[0].Cells["ClienteId"].Value;
             var form = new formAgregarCuenta(_db, clienteId);  
-           // Si no hay errres se guarda correctamente 
+            // Si no hay errres se guarda correctamente 
             if (form.ShowDialog() == DialogResult.OK)
             {
                 var nuevaCuenta = form.NuevaCuenta;
@@ -137,6 +137,7 @@ namespace BancoSimple
         private void btnCloseForm1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
 
         private void btnTransferir_Click(object sender, EventArgs e)
         {

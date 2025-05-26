@@ -18,7 +18,7 @@ namespace BancoSimple.Data
         //Esta parte la utilizamos para poder conectarnos con nuestra base de datos de SQL server.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server = Edward; database =  BancoSimple2S1;trusted_Connection = true; trustserverCertificate = true;");
+            optionsBuilder.UseSqlServer(@"Server = DESKTOP-H093VES; database =  BancoSimple2S1;trusted_Connection = true; trustserverCertificate = true;");
         }
 
         //Fiiltros Globales
