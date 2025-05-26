@@ -33,7 +33,12 @@
             dgvCuentas = new DataGridView();
             btnAgregarCuenta = new Button();
             btnDesactivarCuenta = new Button();
+
             btnCloseForm1 = new Button();
+
+            btnTransferir = new Button();
+            btnVerTransferencias = new Button();
+
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCuentas).BeginInit();
             SuspendLayout();
@@ -91,6 +96,7 @@
             btnDesactivarCuenta.UseVisualStyleBackColor = true;
             btnDesactivarCuenta.Click += btnDesactivarCuenta_Click;
             // 
+
             // btnCloseForm1
             // 
             btnCloseForm1.Location = new Point(1010, 436);
@@ -100,13 +106,40 @@
             btnCloseForm1.Text = "Cerrar Sistema";
             btnCloseForm1.UseVisualStyleBackColor = true;
             btnCloseForm1.Click += btnCloseForm1_Click;
+
+            // btnTransferir
+            // 
+            btnTransferir.Location = new Point(432, 382);
+            btnTransferir.Name = "btnTransferir";
+            btnTransferir.Size = new Size(127, 49);
+            btnTransferir.TabIndex = 4;
+            btnTransferir.Text = "Transferir";
+            btnTransferir.UseVisualStyleBackColor = true;
+            btnTransferir.Click += btnTransferir_Click;
+            // 
+            // btnVerTransferencias
+            // 
+            btnVerTransferencias.Location = new Point(592, 382);
+            btnVerTransferencias.Name = "btnVerTransferencias";
+            btnVerTransferencias.Size = new Size(127, 49);
+            btnVerTransferencias.TabIndex = 5;
+            btnVerTransferencias.Text = "Ver Transferencia";
+            btnVerTransferencias.UseVisualStyleBackColor = true;
+            btnVerTransferencias.Click += btnVerTransferencias_Click;
+
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+
             ClientSize = new Size(1226, 659);
             Controls.Add(btnCloseForm1);
+
+
+            Controls.Add(btnVerTransferencias);
+            Controls.Add(btnTransferir);
+
             Controls.Add(btnDesactivarCuenta);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(btnAgregarCliente);
@@ -128,6 +161,11 @@
         private DataGridView dgvCuentas;
         private Button btnAgregarCuenta;
         private Button btnDesactivarCuenta;
+
         private Button btnCloseForm1;
+
+        private Button btnTransferir;
+        private Button btnVerTransferencias;
+
     }
 }
