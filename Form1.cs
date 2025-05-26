@@ -16,8 +16,9 @@ namespace BancoSimple
 
         private void CargarInfo()
         {
-            var cuentas = _db.Cuentas.Include(c => c.Cliente).Where(c => c.Activa).Select(c => new
-            {
+            //Obtenemos la lista de cuentas activasy  los datos del cliente asociado
+            var cuentas = _db.Cuentas.Include(c => c.Cliente).Where(c => c.Activa).Select(c => new //Obtenemos los datos de las cuentas del cliente y si estan activas
+            { // Nos proyecta los datos 
                 c.CuentaId,
                 c.NumeroCuenta,
                 c.Saldo,
@@ -25,14 +26,14 @@ namespace BancoSimple
                 c.Activa,
                 c.ClienteId
             }).ToList();
-            dgvClientes.DataSource = _db.Clientes.ToList();
-            dgvCuentas.DataSource = cuentas;
+            dgvClientes.DataSource = _db.Clientes.ToList();//Carga todos los clientes en el dgvClientes
+            dgvCuentas.DataSource = cuentas;//Carga las cuentas filtradas y formateadas en el dgvCuentas
         }
 
         private void RealizarTransferencia(int cuentaOrigen, int cuentaDestino, decimal monto)
         {
         /*
-        * Implementa la lÛgica de una transferencia bancaria entre dos cuentas.
+        * Implementa la l√≥gica de una transferencia bancaria entre dos cuentas.
         * Usa el nivel de aislamiento Serializable para evitar problemas de concurrencia,
         * garantizando que no se modifiquen los datos por otras transacciones mientras esta se ejecuta.
         */
@@ -49,7 +50,7 @@ namespace BancoSimple
                 cuentaOrigenId.Saldo -= monto;
                 cuentaDestinoId.Saldo += monto;
 
-                // Registra la transacciÛn en la tabla de transacciones
+                // Registra la transacci√≥n en la tabla de transacciones
                 _db.Transacciones.Add(new Transaccion
                 {
                     Monto = monto,
@@ -62,9 +63,9 @@ namespace BancoSimple
                 _db.SaveChanges();
                 //Transaccion Completa
 
-                // Confirma la transacciÛn
+                // Confirma la transacci√≥n
                 transferencia.Commit();
-                MessageBox.Show("Transferencia realizada con Èxito.");
+                MessageBox.Show("Transferencia realizada con √©xito.");
 
                 CargarInfo();
 
@@ -79,7 +80,8 @@ namespace BancoSimple
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-            var form = new formAgregarCliente();
+            //Instancia la clase del nuevo cliente para obtener su informacion y a√±adirla en la base de datos
+            var form = new formAgregarCliente(_db);  
             if (form.ShowDialog() == DialogResult.OK)
             {
                 var nuevoCliente = form.NuevoCliente;
@@ -91,15 +93,16 @@ namespace BancoSimple
 
         private void btnAgregarCuenta_Click(object sender, EventArgs e)
         {
+            // Validar que se tenga seleccionado un id de cliente.
             if (dgvClientes.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un cliente primero.");
                 return;
             }
-
+            // Obtenemos el valor del id del cliente para asignarle su cuenta.
             var clienteId = (int)dgvClientes.SelectedRows[0].Cells["ClienteId"].Value;
-            var form = new formAgregarCuenta(clienteId);
-
+            var form = new formAgregarCuenta(_db, clienteId);  
+           // Si no hay errres se guarda correctamente 
             if (form.ShowDialog() == DialogResult.OK)
             {
                 var nuevaCuenta = form.NuevaCuenta;
@@ -111,11 +114,15 @@ namespace BancoSimple
 
         private void btnDesactivarCuenta_Click(object sender, EventArgs e)
         {
+            //Valida que se tenga seleccionada una cuenta.
             if (dgvCuentas.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione una cuenta primero.");
                 return;
             }
+
+            //Obtenermos el estado de la cuenta y se valida la cuenta si esta activa para desactivarla.
+
             var cuentaId = (int)dgvCuentas.SelectedRows[0].Cells["CuentaId"].Value;
             var cuenta = _db.Cuentas.Find(cuentaId);
             if (cuenta != null)
@@ -125,6 +132,11 @@ namespace BancoSimple
                 CargarInfo();
             }
         }
+
+
+        private void btnCloseForm1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
 
         private void btnTransferir_Click(object sender, EventArgs e)
         {
@@ -152,6 +164,7 @@ namespace BancoSimple
         {
             var form = new formVerTransacciones();
             form.ShowDialog();
+
         }
     }
 }
