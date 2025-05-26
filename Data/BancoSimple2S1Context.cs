@@ -10,13 +10,15 @@ namespace BancoSimple.Data
 {
     public class BancoSimple2S1Context: DbContext
     {
+        //DbSets que representan las tablas de Cliente,Cuenta,Transaccion en la base de datos.
         public DbSet <Cliente> Clientes { get; set; }
         public DbSet<Cuenta> Cuentas { get; set; }
         public DbSet<Transaccion> Transacciones { get; set; }
 
+        //Esta parte la utilizamos para poder conectarnos con nuestra base de datos de SQL server.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server = DESKTOP-H093VES; database =  BancoSimple2S1;trusted_Connection = true; trustserverCertificate = true;");
+            optionsBuilder.UseSqlServer(@"Server = Edward; database =  BancoSimple2S1;trusted_Connection = true; trustserverCertificate = true;");
         }
 
         //Fiiltros Globales
@@ -24,5 +26,6 @@ namespace BancoSimple.Data
         {
             modelBuilder.Entity<Cuenta>().HasQueryFilter(c => c.Activa);
         }
+
     }
 }

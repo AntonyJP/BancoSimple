@@ -40,24 +40,26 @@
             // lblNumeroCuenta
             // 
             lblNumeroCuenta.AutoSize = true;
-            lblNumeroCuenta.Location = new Point(35, 25);
+            lblNumeroCuenta.Location = new Point(40, 33);
             lblNumeroCuenta.Name = "lblNumeroCuenta";
-            lblNumeroCuenta.Size = new Size(112, 15);
+            lblNumeroCuenta.Size = new Size(139, 20);
             lblNumeroCuenta.TabIndex = 0;
             lblNumeroCuenta.Text = "Numero De Cuenta:";
             // 
             // txtNumeroCuenta
             // 
-            txtNumeroCuenta.Location = new Point(153, 22);
+            txtNumeroCuenta.Location = new Point(175, 29);
+            txtNumeroCuenta.Margin = new Padding(3, 4, 3, 4);
             txtNumeroCuenta.Name = "txtNumeroCuenta";
-            txtNumeroCuenta.Size = new Size(256, 23);
+            txtNumeroCuenta.Size = new Size(292, 27);
             txtNumeroCuenta.TabIndex = 1;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(97, 80);
+            btnAceptar.Location = new Point(111, 107);
+            btnAceptar.Margin = new Padding(3, 4, 3, 4);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(126, 44);
+            btnAceptar.Size = new Size(144, 59);
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -65,16 +67,19 @@
             // 
             // nudSaldoInicial
             // 
-            nudSaldoInicial.Location = new Point(153, 51);
+            nudSaldoInicial.Location = new Point(175, 68);
+            nudSaldoInicial.Margin = new Padding(3, 4, 3, 4);
+            nudSaldoInicial.Maximum = new decimal(new int[] { -727379969, 232, 0, 0 });
             nudSaldoInicial.Name = "nudSaldoInicial";
-            nudSaldoInicial.Size = new Size(256, 23);
+            nudSaldoInicial.Size = new Size(293, 27);
             nudSaldoInicial.TabIndex = 3;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(241, 80);
+            btnCancelar.Location = new Point(275, 107);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(126, 44);
+            btnCancelar.Size = new Size(144, 59);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -83,23 +88,24 @@
             // lblSaldoInicial
             // 
             lblSaldoInicial.AutoSize = true;
-            lblSaldoInicial.Location = new Point(74, 53);
+            lblSaldoInicial.Location = new Point(85, 71);
             lblSaldoInicial.Name = "lblSaldoInicial";
-            lblSaldoInicial.Size = new Size(73, 15);
+            lblSaldoInicial.Size = new Size(93, 20);
             lblSaldoInicial.TabIndex = 0;
             lblSaldoInicial.Text = "Saldo Inicial:";
             // 
             // formAgregarCuenta
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(447, 154);
+            ClientSize = new Size(511, 205);
             Controls.Add(nudSaldoInicial);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(txtNumeroCuenta);
             Controls.Add(lblSaldoInicial);
             Controls.Add(lblNumeroCuenta);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "formAgregarCuenta";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "formAgregarCuenta";
